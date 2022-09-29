@@ -1,0 +1,372 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --Almost-White: hsl(0, 0%, 98%);
+    --Medium-Gray: hsl(0, 0%, 41%);
+    --Almost-Black: hsl(0, 0%, 8%);
+}
+
+body{
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    /* overflow-x: hidden; */
+    font-family: 'Epilogue', sans-serif;
+    transition: 200ms background ease-in;
+}
+
+ul{
+list-style: none;
+}
+
+img{
+    margin: 0;
+    height: 100%;
+}
+
+.container{
+    padding:  0;
+    display: grid;
+    height: inherit;
+    width: 100%;
+    margin-inline: auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    "navbar navbar"
+    "right-main right-main"
+    "left-main left-main"
+    "icons icons"
+    ;
+    
+}
+
+@media (min-width: 500px){
+    .container{
+        grid-template-areas: 
+        "navbar navbar"
+        "left-main right-main"
+        "left-main right-main"
+        "icons right-main"
+        ;
+    }
+}
+
+.navbar{grid-area: navbar;}
+.left-main{grid-area: left-main;}
+.right-main{grid-area: right-main;}
+.icons-div{grid-area: icons;}
+
+
+/*----top section------*/
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+
+.brand-logo{
+    height: 2rem;
+    margin: 1rem 1rem;
+}
+
+.register{
+    padding: 1rem 2rem;
+    border: 2px solid var(--Medium-Gray);
+    border-radius: 1rem;
+}
+
+.ham-img, .close-img{
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    z-index: 1000;
+    height: 1.5rem;
+    width: 2rem;
+    display: block;
+    cursor: pointer;
+    background: transparent;
+    
+}
+
+.close-img{
+    height: 2rem;
+    
+}
+
+.navbar>ul{
+    position: absolute;
+    inset: 0 0 0 50%;
+    min-height: 100%;
+    height:max-content;
+    background-color: white;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 5%;
+    gap: 2rem;
+    transition: 200ms ease-in-out;
+    z-index: 999;
+    color: var(--Medium-Gray);
+    font-weight: 500;
+}
+
+.dropdown{
+    padding-inline: 10%;
+    padding-block: 2rem 0;
+    width: 100%;
+    
+}
+
+.scnd-one{
+    padding-inline: 10%;
+    padding-block: 2rem 0;
+}
+
+.dropdown>ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    
+}
+
+.dropdown>ul>li{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+
+.dropdown-img-span{
+    width: 2rem;
+    text-align: center;
+    margin-right: .5rem;
+}
+
+.dropdown-img{
+    height: 1.5rem;
+}
+
+.navbar>ul>li{
+    display: block;
+}
+
+.log-in{
+    align-self: center;
+}
+
+.arr-dwn, .arr-up{
+    height: .5rem;
+    width: .8rem;
+    cursor: pointer;
+}
+
+
+@media (min-width: 500px){
+    .navbar{
+        justify-content: flex-start;
+
+    }
+
+    .brand-logo{
+        margin-block: 2rem 1.5rem;
+    }
+    
+    .ham-img, .close-img{
+        display: none;
+    }
+
+    
+    .navbar>ul{
+        position: relative;
+        inset: 0;
+        flex-direction: row;
+        padding: 0;
+        align-items: center;
+        gap: 5%;
+        width: 100%;
+        padding-inline: 3rem 4rem;
+    }
+
+
+
+    .navbar>ul>li{
+        display:inline;
+        text-align: center;
+        position: relative;
+    }
+
+    .mrg-lft{
+        margin-left: auto;
+        
+    }
+    
+    .dropdown{
+        padding: 0;
+    }
+    
+    .scnd-one{
+        padding: 0;
+    }
+    
+    .dropdown>ul{
+        position: absolute;
+        background-color: white;
+        top: 3rem;
+        left: -3rem;
+        gap: .5rem;
+        border-radius: .3rem;
+    }
+
+    .scnd-one>ul{
+        top: 3rem;
+        left: -1rem;
+    }
+    
+    .dropdown>ul>li{
+        padding-inline: 0 .5rem;
+        padding-block: .2rem ;
+    }
+
+    .scnd-one>ul{
+        padding: .5rem;
+    }
+}
+
+/*-----Image-----*/
+
+.right-main{
+    content: "";
+    background-image: url(./images/image-hero-mobile-edited.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 350px;
+}
+
+@media (min-width: 500px){
+    .right-main{
+        background-image: url(./images/image-hero-desktop.png);
+        padding: max(40%, 20rem) 0;
+    }
+}
+
+/*-----Content---*/
+
+
+.left-main{
+    text-align: center;
+    margin: 2rem 1rem;
+    line-height: 2rem;
+}
+
+.main-head{
+    margin-bottom: 1.5rem;
+    font-size: 2.7rem;
+    color: var(--Almost-Black);
+    line-height: 3rem;
+}
+
+.main-para{
+    margin-inline: .6rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--Medium-Gray);
+}
+
+.learn-more{
+    outline: none;
+    border: none;
+    background-color: black;
+    color: var(--Almost-White);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+@media (min-width: 500px){
+    .left-main{
+        text-align: left;
+        margin-top: auto;
+        margin-inline: auto;
+        width: 85% ;
+    }
+    .main-head{
+        font-size: 4.5rem;
+        line-height: 4rem;
+        width: 100%;
+        margin-inline: 15% 0;
+        
+    }
+    .main-word{
+        display: block;
+        
+    }
+    .main-para{
+       margin-inline: 0;
+       max-width: 400px;
+       margin-inline: 15% 0;
+    }
+    .learn-more{
+        margin-inline: 15% 0;
+    }
+
+}
+
+/*------icons-----*/
+
+.icons-div{
+    height: 3rem;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+.icons{  
+    height: clamp(.5rem, 1.5rem, 2.5rem);
+    margin-inline: min(.5rem, 5%);
+    margin-block: .5rem;
+}
+
+@media (min-width: 500px){
+    .icons-div{
+        margin-top: auto;
+        height: auto;
+    }
+    .icons{
+        margin-inline: 2rem;  
+    }
+}
+
+/*--------Functionality Classes------*/
+
+.move{
+    transform: translateX(100%);
+}
+
+
+
+.hide{
+    display: none;
+}
+
+.bg-active{
+    background-color: grey;
+    position: relative;
+    z-index: -1;
+}
+
+@media (min-width: 500px){
+    .move{
+        transform: translateX(0);
+    }
+    
+}
