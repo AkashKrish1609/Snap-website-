@@ -14,7 +14,7 @@ body{
     min-height: 100vh;
     padding: 0;
     margin: 0;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
     font-family: 'Epilogue', sans-serif;
     transition: 200ms background ease-in;
 }
